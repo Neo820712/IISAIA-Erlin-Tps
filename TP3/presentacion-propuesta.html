@@ -796,7 +796,7 @@
           </div>
           <p style="margin-bottom: 0.5rem;">Diseño robusto guiado por el marco teórico del desarrollo cliente-servidor:</p>
           <ul class="intel-list">
-            <li><strong>Contract-First</strong>: Sincronización absoluta de los routers de FastAPI con el diseño estricto de Pydantic.</li>
+            <li><strong>Contract-First</strong>: El contrato de la API está definido en <code>openapi.yaml</code> antes de escribir una línea de código.</li>
             <li><strong>SQLite Relacional</strong>: Estructura de tablas SQL vinculadas mediante Claves Foráneas (Relación 1-a-N entre CEDEARs y Precios).</li>
             <li><strong>Observabilidad</strong>: Uso riguroso de códigos de estado HTTP (201 para creación, 204 para eliminación) y manejo de errores.</li>
           </ul>
@@ -823,19 +823,19 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Harness</strong></td>
-                <td>• <code>CLAUDE.md</code><br>• <code>rules/</code> (Glob paths)<br>• Skill <code>/actualizar-cedear</code></td>
-                <td>Configura el runtime. Permite habilitar comandos persistentes que modifican el workspace.</td>
+                <td><strong>Prompt</strong></td>
+                <td>• Registro de <code>prompts.md</code></td>
+                <td>Diseño del mejor input para cada interacción con el agente. Lo que se viene practicando desde el TP1.</td>
               </tr>
               <tr>
                 <td><strong>Context</strong></td>
-                <td>• <code>openapi.yaml</code> en raíz<br>• Compactación periódica</td>
-                <td>Controla qué archivos y especificaciones carga el modelo en sesión para minimizar tokens.</td>
+                <td>• <code>openapi.yaml</code> en raíz<br>• Compactación periódica entre fases</td>
+                <td>Controla qué ve el modelo en cada sesión: cargar lo necesario, mantener la señal, compactar cuando se llena.</td>
               </tr>
               <tr>
-                <td><strong>Prompt</strong></td>
-                <td>• Registro de <code>prompts.md</code><br>• Ejecución ReAct</td>
-                <td>Formato de prompts por sesión para guiar la planificación estructurada del agente.</td>
+                <td><strong>Harness</strong></td>
+                <td>• <code>CLAUDE.md</code><br>• <code>rules/</code> (Glob paths)<br>• <code>settings.json</code> (permisos)<br>• Skill <code>/actualizar-cedear</code> (ciclo ReAct)</td>
+                <td>Capa de runtime: tools, contexto, feedback y verificación. La skill implementa el loop Think→Act→Observe.</td>
               </tr>
             </tbody>
           </table>
